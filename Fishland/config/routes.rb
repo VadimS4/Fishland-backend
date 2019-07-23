@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :favorites, only: [:create, :index]
       resources :fish, only: [:index, :show]
 
+      post '/new', to: 'users#create'
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
     end
