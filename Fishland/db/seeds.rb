@@ -96,5 +96,5 @@ form.each do |item|
         fishing_tips = info_page.css('div.experienceLeftColumn').css('ul')[2].css('li').text
     end
 
-    fish_name = Fish.create(name: fish_name, information: fish_information, facts: fish_facts, habitat: fish_habitat, diet: fish_diet, tips: fishing_tips)
+    fish_name = Fish.create(name: fish_name, information: fish_information, facts: fish_facts, habitat: fish_habitat, diet: fish_diet, tips: fishing_tips, image: fish_image)
 end
