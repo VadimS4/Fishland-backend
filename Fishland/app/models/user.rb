@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :favorites, dependent: :destroy
+    has_many :favorites
     has_many :fish, through: :favorites
 
     has_secure_password

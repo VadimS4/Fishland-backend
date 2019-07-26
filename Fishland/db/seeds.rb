@@ -5,6 +5,10 @@ require 'mechanize'
 require 'byebug'
 require 'json'
 
+User.destroy_all
+Fish.destroy_all
+Favorite.destroy_all
+
 @website = 'https://forum.americanexpedition.us'
 
 mechanize = Mechanize.new
@@ -12,9 +16,10 @@ document = mechanize.get('https://forum.americanexpedition.us/freshwater-fish-in
 form = mechanize.page.parser.css('div.animalInfoIntro')
 
 new_user = User.create(name: "John Snow", username: "winter", password: "123456")
-new_favorite = Favorite.create(user_id: 1, fish_id: 1)
 
 form.each do |item|
+
+    count = 0
 
     url = item.css('a')[0].values.join()
     info_page = mechanize.get(@website + url)
@@ -96,5 +101,14 @@ form.each do |item|
         fishing_tips = info_page.css('div.experienceLeftColumn').css('ul')[2].css('li').text
     end
 
-    fish_name = Fish.create(name: fish_name, information: fish_information, facts: fish_facts, habitat: fish_habitat, diet: fish_diet, tips: fishing_tips, image: fish_image)
+    fish = Fish.create(name: fish_name, information: fish_information, facts: fish_facts, habitat: fish_habitat, diet: fish_diet, tips: fishing_tips)
 end
+
+
+fish = Fish.first 
+fish2 = Fish.last
+favorite1 = Favorite.create(user_id: new_user.id, fish_id: fish.id)
+favorite2 = Favorite.create(user_id: new_user.id, fish_id: fish2.id)
+
+
+puts 'seeds done'
