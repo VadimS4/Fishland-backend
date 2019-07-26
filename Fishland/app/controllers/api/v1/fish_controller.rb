@@ -1,5 +1,5 @@
 class Api::V1::FishController < ApplicationController
-    # skip_before_action :authorized, only: [:index, :show]
+    skip_before_action :authorized, only: [:index, :show]
 
     def index 
         all_fish = Fish.all

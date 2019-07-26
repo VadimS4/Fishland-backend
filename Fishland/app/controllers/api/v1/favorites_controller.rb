@@ -1,7 +1,8 @@
 class Api::V1::FavoritesController < ApplicationController
     
     def index
-        @favorites = current_user.Favorite.all
+        favorites = current_user.Favorite.all
+        render json: favorites
     end
 
     def create
