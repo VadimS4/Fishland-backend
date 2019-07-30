@@ -6,16 +6,17 @@ class Api::V1::FavoritesController < ApplicationController
     end
 
     def create
-        @favorite = current_user.favorites.build(favorite_params)
+        @favorite = Favorite.new(favorite_params)
         if @favorite.valid?
             @favorite.save
+            render json: { favorite: FavoriteSerializer.new(@favorite) }, status: :created
         else
-            render json: { message: 'Failed to create Favorite. Missing User_id or missing Fish_id'}
+            render json: { message: "This favorite has already been created" }, status: 422
         end
     end
 
     def destroy
-        @favorite = current_user.favorites.find(params[:id])
+        @favorite = current_user.Favorite.find(params[:id])
         @favorite.destroy
     end
 

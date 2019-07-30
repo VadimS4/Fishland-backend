@@ -12,7 +12,8 @@ Rails.application.routes.draw do
       get '/fish', to: 'fish#index'
       get '/fish/:id', to: 'fish#show'
       
-      post '/newfav', to: 'favorites#new'
+      post '/newfav', to: 'favorites#create'
+      post '/unfav', to: 'favorites#destroy'
     end
   end
 end
