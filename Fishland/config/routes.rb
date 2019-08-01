@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create]
-      resources :favorites, only: [:create, :index]
+      resources :favorites, only: [:create, :index, :delete]
       resources :fish, only: [:index, :show]
 
       post '/new', to: 'users#create'
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       get '/fish/:id', to: 'fish#show'
       
       post '/newfav', to: 'favorites#create'
-      post '/unfav', to: 'favorites#destroy'
+      delete '/unfav/:id', to: 'favorites#delete'
     end
   end
 end
