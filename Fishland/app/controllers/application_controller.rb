@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
     before_action :authorized
-    skip_before_action :authorized, only: [:create]
+    skip_before_action :authorized, only: [:create, :delete]
 
     def encode_token(payload)
         JWT.encode(payload, 'my_s3cr3t')
