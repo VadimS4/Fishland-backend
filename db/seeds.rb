@@ -2,7 +2,6 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 require 'mechanize'
-require 'byebug'
 require 'json'
 
 User.destroy_all
@@ -109,6 +108,3 @@ fish = Fish.first
 fish2 = Fish.last
 favorite1 = Favorite.create(user_id: new_user.id, fish_id: fish.id)
 favorite2 = Favorite.create(user_id: new_user.id, fish_id: fish2.id)
-
-
-puts 'seeds done'
