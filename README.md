@@ -1,24 +1,5 @@
-# README
+### `Fishland Backend ReadMe`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+All information for this application as well as the live version are in [THIS](https://fishland-application.herokuapp.com/) directory. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### `Application built by Vadim Stakhnyuk`
